@@ -33,3 +33,4 @@ Land outline: Natural Earth 1:50m via world-atlas (public domain).
 4. After about a minute the site is live at `https://<your-username>.github.io/earth-tipping-points/`.
 
 Prepared for the course Man and Environment (มนุษย์กับสิ่งแวดล้อม), Faculty of Science and Technology, Thammasat University.
+
