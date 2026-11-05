@@ -62,7 +62,7 @@ body.video .badge { display: none; }
 .upd.ews { color: var(--ocean); border-color: rgba(255,138,76,0.5); }
 .upd.less { color: var(--muted); border-color: var(--line); }
 .fact { color: var(--ink); font-size: 12px; margin-top: 3px; }
-.news { display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.45; color: var(--muted); background: rgba(255,79,123,0.06); border: 1px solid rgba(255,79,123,0.25); border-radius: 14px; padding: 10px 12px; }
+.news { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.45; color: var(--muted); background: rgba(255,79,123,0.06); border: 1px solid rgba(255,79,123,0.25); border-radius: 14px; padding: 10px 12px; }
 .news h3 { margin: 0 0 2px; font-weight: 500; font-size: 13px; color: var(--warn); }
 .news b { color: var(--ink); font-weight: 500; }
 .now-pill { font-size: 12px; color: var(--warn); border: 1px solid rgba(255,79,123,0.4); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
@@ -243,9 +243,6 @@ function renderText() {
   document.getElementById("l-en").setAttribute("aria-pressed", String(LANG === "en"));
   document.getElementById("l-th").setAttribute("aria-pressed", String(LANG === "th"));
   const list = document.getElementById("list"); list.innerHTML = "";
-  const nb = document.createElement("div"); nb.className = "news";
-  nb.innerHTML = `<h3>${t.newsH}</h3>` + t.news.map(x => `<div>${x}</div>`).join("");
-  list.appendChild(nb);
   [1, 0].forEach(core => {
     const g = document.createElement("div"); g.className = "group"; g.textContent = core ? t.core : t.impact; list.appendChild(g);
     EL.filter(e => e[1] === core).forEach(e => {
@@ -262,6 +259,9 @@ function renderText() {
       list.appendChild(r);
     });
   });
+  const nb = document.createElement("div"); nb.className = "news";
+  nb.innerHTML = `<h3>${t.newsH}</h3>` + t.news.map(x => `<div>${x}</div>`).join("");
+  list.appendChild(nb);
   const nt = document.createElement("div"); nt.className = "note"; nt.innerHTML = t.note; list.appendChild(nt);
 }
 document.getElementById("l-en").onclick = () => { LANG = "en"; renderText(); };
@@ -448,3 +448,4 @@ if (!window.__RECORD__) requestAnimationFrame(loop);
 </script>
 </body>
 </html>
+
